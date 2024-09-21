@@ -1,1 +1,1 @@
-# CS-project
+# The Adventures of Grungus! A Camelot adventure game coded by Zev Gaslin, Joshua Haddad, and Jaedan Curcio. Explore the vast lands of Camelot with your hero Grungus, a poor farmer looking to take his land back from the evil king! Can you save your land and your hard earned money, or will you perish at the hands of the government? Find out in, the Adventures of Grungus!
