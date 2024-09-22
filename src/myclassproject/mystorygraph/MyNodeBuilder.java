@@ -18,7 +18,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void rootActions() {
 		//Example:
-		var root = get(NodeLabels.root.toString());
+		var root = get(MyNodeLabels.root.toString());
 		root.add(new CreateAll(List.of(cottage, town, sword))).add(new CreateCharacterSequence(bandit))
 		.add(new CreateCharacterSequence(player)).add(new SetPosition(bandit, cottage, "Chest"))
 		.add(new SetPosition(player, cottage)).add(new Face(bandit, player)).add(new Draw(bandit, sword))
@@ -29,6 +29,6 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideMenu()).add(new EnableInput());
 	}
 	
-	System.out.print("Hi Josh");
+
 };
 
