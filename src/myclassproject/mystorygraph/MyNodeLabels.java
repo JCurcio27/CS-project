@@ -51,5 +51,5 @@ public enum MyNodeLabels{
 	BuyYourLandBack,
 	LandEnding,
 	BuyKingdom,
-	KindomEnding
+	KindomEnding;
 }

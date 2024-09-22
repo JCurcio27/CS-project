@@ -4,6 +4,14 @@ import java.util.List;
 
 import com.storygraph.*;
 
+import static myclassproject.mystorygraph.MyStoryEntities.*;
+
+
+import java.util.List;
+import com.actions.*;
+import com.sequences.*;
+import com.storygraph.*;
+
 public class MyNodeBuilder extends NodeBuilder {
 	public MyNodeBuilder(List<Node> list) {
 		super(list);
@@ -19,9 +27,8 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void rootActions() {
 		//Example:
 		var root = get(MyNodeLabels.root.toString());
-		root.add(new CreateAll(List.of(cottage, town, sword))).add(new CreateCharacterSequence(bandit))
-		.add(new CreateCharacterSequence(player)).add(new SetPosition(bandit, cottage, "Chest"))
-		.add(new SetPosition(player, cottage)).add(new Face(bandit, player)).add(new Draw(bandit, sword))
+		root.add(new CreateAll(list.of(Town)).add(new CreateCharacterSequence(player))
+		.add(new SetPosition(player, farm)).add(new Face(bandit, player))
 		.add(new SetCameraFocus(player)).add(new ShowMenu());
 	}
 	public void Town() {
