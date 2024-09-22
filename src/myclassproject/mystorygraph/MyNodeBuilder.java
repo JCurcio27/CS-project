@@ -29,4 +29,6 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new HideMenu()).add(new EnableInput());
 	}
 	
-}
+	System.out.print("Hi Josh");
+};
+
