@@ -78,11 +78,43 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	@BuilderMethod
 	public void TownGeneralStoreActions() {
-		var node = get(MyNodeLabels.Town.toString());
+		var node = get(MyNodeLabels.TownGeneralStore.toString());
 		node.add(new NarrationSequence("You enter a small general store that seems to be falling apart at the seams and smells of mold and must. You approach the manic store owner. Would you like to purchase anything?"));
+		node.add(new Face(merchant,player));
+		node.add(new Face(player,merchant));
+		node.add(new Draw(player,coin));
+		node.add(new Draw(merchant,apple));
+		node.add(new Take(merchant,coin,player));
+		node.add(new Take(player,apple,merchant));
 		node.add(new FadeIn());
 		node.add(new HideMenu()).add(new EnableInput());
-		
+	}
+	
+	@BuilderMethod
+	public void GeneralStoreActions() {
+		var node = get(MyNodeLabels.GeneralStore.toString());
+		node.add(new NarrationSequence("You walk into the city’s general store and are greeted by a cat meowing at your feet. “Ah, welcome!”, says the store’s owner. “Feel free to shop around for as long as you’d like, and let me know if you see anything that strikes your fancy!”"));
+		node.add(new Face(merchant,player));
+		node.add(new Face(player,merchant));
+		node.add(new Draw(player,coin));
+		node.add(new Draw(merchant,bread));
+		node.add(new Take(merchant,coin,player));
+		node.add(new Take(player,bread,merchant));
+		node.add(new FadeIn());
+		node.add(new HideMenu()).add(new EnableInput());
+	}
+	
+	public void BlacksmithActions() {
+		var node = get(MyNodeLabels.Town.toString());
+		node.add(new NarrationSequence("The smell of fire fills your nostrils as you enter the blacksmiths shop. “Welcome to my humble forge”, says the Blacksmith. “Please, let me know if you’d like to purchase any of my wares”."));
+		node.add(new Face(blacksmith,player));
+		node.add(new Face(player,blacksmith));
+		node.add(new Draw(player,coin));
+		node.add(new Draw(merchant,bread));
+		node.add(new Take(merchant,coin,player));
+		node.add(new Take(player,bread,merchant));
+		node.add(new FadeIn());
+		node.add(new HideMenu()).add(new EnableInput());
 	}
 	@BuilderMethod
 	public void CityBeggingSpotActions() {
