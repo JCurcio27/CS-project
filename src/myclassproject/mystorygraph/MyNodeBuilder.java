@@ -28,7 +28,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void rootActions() {
 		//Example:
 		var root = get(MyNodeLabels.root.toString());
-		root.add(new CreateAll(List.of(farm, town, city, blackSmith, castleCrossroads, port, ruins, greatHall,forestPath,dungeon, alchemyShop, hallway, bridge, storage, bridge)))
+		root.add(new CreateAll(List.of(farm, town, city, blackSmith, castleCrossroads, port, ruins, greatHall,forestPath,dungeon, alchemyShop, hallway, bridge, storage, bridge,sword,coin,evilBook,magnifyingGlass,apple,bread)))
 		.add(new CreateCharacterSequence(player))
 		.add(new SetPosition(player, farm))
 		.add(new Face(bandit, player))
