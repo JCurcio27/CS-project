@@ -41,6 +41,18 @@ public final class MyStoryEntities {
 	public static final Item magnifyingGlass = new Item("MagnifyingGlass", ItemTypes.MagnifyingGlass);
 	public static final Item apple = new Item("Apple", ItemTypes.Apple);
 	public static final Item bread = new Item("Bread", ItemTypes.Bread);
+	public static final Characters player = new Characters("Player", BodyTypes.D, Clothing.Peasant, HairStyle.Short, Colors.Black, 6);
+	public static final Characters bandit = new Characters("Bandit", BodyTypes.F, Clothing.Bandit, HairStyle.Bald, Colors.Black, 4);
+	public static final Characters npc1 = new Characters("NPC1", BodyTypes.F, Clothing.Peasant, HairStyle.Spiky, Colors.Black, 4);
+	public static final Characters npc2 = new Characters("NPC2", BodyTypes.H, Clothing.Peasant, HairStyle.Short, Colors.Black, 4);
+	public static final Characters blacksmith = new Characters("Blacksmith", BodyTypes.D, Clothing.LightArmour, HairStyle.Mage_Full, Colors.Black, 4);
+	public static final Characters alchemist = new Characters("Alchemist", BodyTypes.C, Clothing.Merchant, HairStyle.Ponytail, Colors.Brown, 4);
+	public static final Characters king = new Characters("King", BodyTypes.B, Clothing.King, HairStyle.Short, Colors.Black, 4);
+	public static final Characters gaurd = new Characters("Gaurd", BodyTypes.F, Clothing.HeavyArmour, HairStyle.Bald, Colors.Black, 4);
+	public static final Characters pirate = new Characters("Pirate", BodyTypes.H, Clothing.Peasant, HairStyle.Musketeer_Full, Colors.Brown, 4);
+
+
+
 	
 
 
