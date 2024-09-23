@@ -108,11 +108,32 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void AttemptPickPocketActions() {
-		var node = get(MyNodeLabels.AttemptPickpocket.toString());
+	public void AttemptPickpocketActions() {
+		var node = get(MyNodeLabels.AttemptPickPocket.toString());
 		node.add(new NarrationSequence("You are caught by the stranger! He draws his sword at you, and prepares to attack!"));
 		node.add(new Face(npc1, player)).add(new Draw(npc1, sword)).add(new Attack(npc1, player, true)).add(new Die(player));
 	}
+	
+	@BuilderMethod
+	public void ForestActions() {
+		var node = get(MyNodeLabels.Forest.toString());
+		node.add(new WalkTo(player, forestPath, "DirtPile"));
+	}
+	@BuilderMethod
+	public void FountainActions() {
+		var node = get(MyNodeLabels.Fountain.toString());
+		node.add(new NarrationSequence("There is an evil book shaped hole in the fountain. Would you like to add your evil book?"));
+		node.add(new EnableInput());
+		node.add(new Draw(player, evilBook));
+		
+	}
+	public void InfiniteGoldActions() {
+		var node = get(MyNodeLabels.InfiniteGold.toString());
+		node.add(new NarrationSequence("The fountain erupts with gold, giving you seemingly an infinite amount!"));
+		
+	}
+	
+	
 	
 
 }
