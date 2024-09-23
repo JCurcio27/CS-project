@@ -38,6 +38,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new CreateCharacterSequence(king))
 		.add(new CreateCharacterSequence(gaurd))
 		.add(new CreateCharacterSequence(pirate))
+		.add(new CreateCharacterSequence(merchant))
 		.add(new SetPosition(player, farm))
 		.add(new SetPosition(bandit, dungeon))
 		.add(new SetPosition(npc1, town))
@@ -48,21 +49,25 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new SetPosition(gaurd, bridge))
 		.add(new SetPosition(pirate, port))
 		.add(new SetCameraFocus(player))
+		.add(new SetPosition(merchant, storage))
 		.add(new ShowMenu());
 	}
+	@BuilderMethod
 	public void TownActions() {
 		var node = get(MyNodeLabels.Town.toString());
 		node.add(new HideMenu()).add(new EnableInput());
+		node.add(new NarrationSequence("You awaken in the small, poor town of Gregoria, on the outer edge of the forest. The town is filled with dilapidated buildings and broken people. You know what to do next. \n" + "Where would you like to go?"));
 		
-		node.add(new HideMenu()).add(new EnableInput());
 		
 	}
 	@BuilderMethod
-	public void atCity() {
+	public void CityActions() {
 		var node = get(MyNodeLabels.City.toString());
-		node.add(new CreateAll(List.of(insert people here));
+		node.add(new CreateAll(List.of(npc1, gaurd)));
+		node.add(new NarrationSequence("As you pass through the pearly gates of the city, you are taken aback by the hustle and bustle of the beautiful Camelot City. You are excited by the prospect of exploring every corner of the mysterious new location, but you know you must focus on your ultimate goal; getting your land back.\n"));
 		
 	}
+	
 	@BuilderMethod
 	public void beggingActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
