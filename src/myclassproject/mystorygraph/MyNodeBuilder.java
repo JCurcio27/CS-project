@@ -158,6 +158,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new Take(gaurd,coin,player));
 		node.add(new SetPosition(player, city));
 	}
+	@BuilderMethod
 	public void CastleGateActions() {
 		var node = get(MyNodeLabels.CastleGate.toString());
 		node.add(new SetPosition(gaurd, castleCrossroads));
@@ -212,6 +213,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new Draw(player, evilBook));
 		
 	}
+	@BuilderMethod
 	public void InfiniteGoldActions() {
 		var node = get(MyNodeLabels.InfiniteGold.toString());
 		node.add(new NarrationSequence("The fountain erupts with gold, giving you seemingly an infinite amount!"));
