@@ -20,16 +20,21 @@ public final class MyStoryEntities {
 	//You can access these instances in your EdgeBuilder and NodeBuilder classes by importing:
 	//import static myclassproject.mystorygraph.MyStoryEntities.*;
 	
-	public static final Characters player = new Characters("Player", BodyTypes.D, Clothing.Peasant, HairStyle.Short, Colors.Black, 6);
-	public static final Characters bandit = new Characters("Bandit", BodyTypes.F, Clothing.Bandit, HairStyle.Bald, Colors.Black, 4);
-	public static final Place cottage = new Place("Home", PlaceTypes.Cottage);
-	public static final Place town = new Place("Town", PlaceTypes.City);
+
+	public static final Place town = new Place("Town", PlaceTypes.Camp);
 	public static final Place farm = new Place("Farm", PlaceTypes.Farm);
-	public static final Item sword = new Item("Sword", ItemTypes.Sword);
-	public static final Furniture cottageDoor = new Furniture(cottage, FurnitureTypes.Door);
-	public static final Furniture table = new Furniture(cottage, FurnitureTypes.Table);
-	public static final Furniture chair = new Furniture(cottage, FurnitureTypes.Chair);
-	public static final Furniture cityDoor = new Furniture(town, FurnitureTypes.RedHouseDoor);
-	public static final Furniture cityExit = new Furniture(town, FurnitureTypes.NorthEnd);
+	public static final Place city = new Place("City", PlaceTypes.City);
+	public static final Place dungeon = new Place("Dungeon", PlaceTypes.Dungeon);
+	public static final Place forestPath = new Place("ForestPath", PlaceTypes.ForestPath);
+	public static final Place ruins = new Place("Ruins", PlaceTypes.Ruins);
+	public static final Place alchemyShop = new Place("Port", PlaceTypes.Port);
+	public static final Place blackSmith = new Place("BlackSmith", PlaceTypes.Blacksmith);
+	public static final Place castleCrossroads = new Place("CastleCrossroads", PlaceTypes.CastleCrossroads);
+	public static final Place hallway = new Place("Hallway", PlaceTypes.Hallway);
+	public static final Place greatHall = new Place(" GreatHall", PlaceTypes.GreatHall);
+	public static final Place port = new Place("Port", PlaceTypes.Port);
+	public static final Place storage = new Place("Storage", PlaceTypes.Storage);
+	public static final Place bridge = new Place("Bridge", PlaceTypes.Bridge);
+
 }
 }

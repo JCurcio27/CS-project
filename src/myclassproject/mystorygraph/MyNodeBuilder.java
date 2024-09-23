@@ -1,6 +1,7 @@
 package myclassproject.mystorygraph;
 
 import java.util.List;
+import myclassproject.mystorygraph.MyNodeLabels;
 
 import com.storygraph.*;
 
@@ -27,13 +28,19 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void rootActions() {
 		//Example:
 		var root = get(MyNodeLabels.root.toString());
-		root.add(new CreateAll(list.of(Town)).add(new CreateCharacterSequence(player))
-		.add(new SetPosition(player, farm)).add(new Face(bandit, player))
-		.add(new SetCameraFocus(player)).add(new ShowMenu());
+		root.add(new CreateAll(List.of(farm, town, city, blackSmith, castleCrossroads, port, ruins, greatHall,forestPath,dungeon, alchemyShop, hallway, bridge, storage, bridge)))
+		.add(new CreateCharacterSequence(player))
+		.add(new SetPosition(player, farm))
+		.add(new Face(bandit, player))
+		.add(new SetCameraFocus(player))
+		.add(new ShowMenu());
 	}
-	public void Town() {
+	public void TownActions() {
 		var node = get(NodeLabels.Town.toString());
 		node.add(new HideMenu()).add(new EnableInput());
+		
+		node.add(new HideMenu()).add(new EnableInput());
+		
 	}
 	
 
