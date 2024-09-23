@@ -30,8 +30,23 @@ public class MyNodeBuilder extends NodeBuilder {
 		var root = get(MyNodeLabels.root.toString());
 		root.add(new CreateAll(List.of(farm, town, city, blackSmith, castleCrossroads, port, ruins, greatHall,forestPath,dungeon, alchemyShop, hallway, bridge, storage, bridge,sword,coin,evilBook,magnifyingGlass,apple,bread)))
 		.add(new CreateCharacterSequence(player))
+		.add(new CreateCharacterSequence(bandit))
+		.add(new CreateCharacterSequence(npc1))
+		.add(new CreateCharacterSequence(npc2))
+		.add(new CreateCharacterSequence(blacksmith))
+		.add(new CreateCharacterSequence(alchemist))
+		.add(new CreateCharacterSequence(king))
+		.add(new CreateCharacterSequence(gaurd))
+		.add(new CreateCharacterSequence(pirate))
 		.add(new SetPosition(player, farm))
-		.add(new Face(bandit, player))
+		.add(new SetPosition(bandit, dungeon))
+		.add(new SetPosition(npc1, town))
+		.add(new SetPosition(npc2, town))
+		.add(new SetPosition(blacksmith, blackSmith))
+		.add(new SetPosition(alchemist, alchemyShop))
+		.add(new SetPosition(king, greatHall))
+		.add(new SetPosition(gaurd, bridge))
+		.add(new SetPosition(pirate, port))
 		.add(new SetCameraFocus(player))
 		.add(new ShowMenu());
 	}
@@ -51,9 +66,19 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void beggingActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
+		node.add(new WalkTo(player,town,"RightLog"));
 		node.add(new HideMenu()).add(new EnableInput());
 		node.add(new NarrationSequence("While in your begging spot, a citizen crosses your path. Would you like to beg for coins, attempt to fight him, or attempt to pickpocket him?"));
 		
 	}
+	@BuilderMethod
+	public void TownGeneralStoreActions() {
+		var node = get(MyNodeLabels.Town.toString());
+		node.add(new NarrationSequence("You enter a small general store that seems to be falling apart at the seams and smells of mold and must. You approach the manic store owner. Would you like to purchase anything?"));
+		node.add(new FadeIn());
+		node.add(new HideMenu()).add(new EnableInput());
+		
+	}
+	
 
 }
