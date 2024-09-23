@@ -36,13 +36,24 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new ShowMenu());
 	}
 	public void TownActions() {
-		var node = get(NodeLabels.Town.toString());
+		var node = get(MyNodeLabels.Town.toString());
 		node.add(new HideMenu()).add(new EnableInput());
 		
 		node.add(new HideMenu()).add(new EnableInput());
 		
 	}
-	
+	@BuilderMethod
+	public void atCity() {
+		var node = get(MyNodeLabels.City.toString());
+		node.add(new CreateAll(List.of(insert people here));
+		
+	}
+	@BuilderMethod
+	public void beggingActions() {
+		var node = get(MyNodeLabels.BeggingSpot.toString());
+		node.add(new HideMenu()).add(new EnableInput());
+		node.add(new NarrationSequence("While in your begging spot, a citizen crosses your path. Would you like to beg for coins, attempt to fight him, or attempt to pickpocket him?"));
+		
+	}
 
-};
-
+}
