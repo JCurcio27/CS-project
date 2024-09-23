@@ -69,7 +69,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	}
 	
 	@BuilderMethod
-	public void beggingActions() {
+	public void TownBeggingActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
 		node.add(new WalkTo(player,town,"RightLog"));
 		node.add(new HideMenu()).add(new EnableInput());
@@ -83,6 +83,35 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new FadeIn());
 		node.add(new HideMenu()).add(new EnableInput());
 		
+	}
+	@BuilderMethod
+	public void CityBeggingSpotActions() {
+		var node = get(MyNodeLabels.BeggingSpot.toString());
+		node.add(new WalkTo(player, city, "Alley2"));
+		node.add(new HideMenu()).add(new EnableInput());
+		node.add(new NarrationSequence("While in your begging spot, a citizen crosses your path. Would you like to beg for coins, attempt to fight him, or attempt to pickpocket him?"));
+		
+	}
+	@BuilderMethod
+	public void FightActions() {
+		var node = get(MyNodeLabels.Fight.toString());
+		node.add(new Attack(player, npc1, true));
+		node.add(new Die(npc1));
+		node.add(new Dance(player));
+		
+	}
+	
+	@BuilderMethod
+	public void BegForCoinsActions() {
+		var node = get(MyNodeLabels.BegForCoins.toString());
+		node.add(new NarrationSequence("The stranger relents, and gives you the coins you asked for."));
+	}
+	
+	@BuilderMethod
+	public void AttemptPickPocketActions() {
+		var node = get(MyNodeLabels.AttemptPickpocket.toString());
+		node.add(new NarrationSequence("You are caught by the stranger! He draws his sword at you, and prepares to attack!"));
+		node.add(new Face(npc1, player)).add(new Draw(npc1, sword)).add(new Attack(npc1, player, true)).add(new Die(player));
 	}
 	
 
