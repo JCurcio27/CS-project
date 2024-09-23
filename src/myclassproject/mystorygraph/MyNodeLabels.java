@@ -2,23 +2,23 @@ package myclassproject.mystorygraph;
 
 //Fill this enum with the labels you chose for the NODES of your story graph.
 public enum MyNodeLabels{
-	root,
-	Town,
-	TownGeneralStore,
+	root, //d
+	Town, //d
+	TownGeneralStore, //d
 	Twinkie,
 	Apple,
 	VerySourGrapes,
 	GeneralStore,
-	BeggingSpot,
-	Fight,
-	BegForCoins,
-	AttemptPickPocket,
+	BeggingSpot,//d
+	Fight,//d
+	BegForCoins,//d
+	AttemptPickPocket,//d
 	YouDiedTown,
 	Gate,
 	Pay,
 	City,
 	FightPrisoner,
-	Blacksmith,
+	Blacksmith,//d
 	Upgrade,
 	Dungeon,
 	YouDiedCity,
@@ -35,17 +35,17 @@ public enum MyNodeLabels{
 	MainHallUnsafe3,
 	BribeTheGuard4,
 	ThroneRoom,
-	Forest,
-	Fountain,
+	Forest, //d
+	Fountain, //d
 	LoudAndObnoxiousTree,
-	InfiniteGold,
+	InfiniteGold, //d
 	LookThroughSpyglass,
-	GrabHim,
-	Dock,
-	PirateFight,
-	No,
-	Arg,
-	PirateEnding,
+	GrabHim, 
+	Dock, //d
+	PirateFight, //d
+	No, //d
+	Arg, //d
+	PirateEnding, //d
 	TooBad,
 	FightKing,
 	BuyYourLandBack,
