@@ -133,6 +133,42 @@ public class MyNodeBuilder extends NodeBuilder {
 		
 	}
 	
+	@BuilderMethod
+	public void DockActions() {
+		var node = get(MyNodeLabels.Dock.toString());
+		node.add(new SetPosition(npc1, port,"BigStall"));
+		node.add(new NarrationSequence("You are greeted by the smell of sea mist and rum as you enter the dock at the edge of town. You see an intimidating swashbuckler sitting by his ship, as well as local city goers fishing off of the dock. 'Argh! Are ye a pirate?' Asks a captain from atop his pirate ship."));
+	}
+	
+	@BuilderMethod
+	public void PirateFightActions() {
+		var node = get(MyNodeLabels.PirateFight.toString());
+		node.add(new SetPosition(pirate, port,"BigShip"));
+		node.add(new NarrationSequence("Pirate: 'I don't believe ye land lubber! Face me in combat to prove your pirate prowess!'"));
+		node.add(new Face(pirate, player)).add(new Draw(pirate, sword)).add(new Draw(player,sword)).add(new Attack(player, pirate, true)).add(new Die(pirate));
+		node.add(new NarrationSequence("Pirate: 'Congrats you have bested the pirate captain in fair combat!\n+"+ "Arg! Ye are a true pirate'"));
+	}
+	@BuilderMethod
+	public void PirateEndingActions() {
+		var node = get(MyNodeLabels.PirateEnding.toString());
+		node.add(new NarrationSequence("You sail away from your past life, with nothing but the open ocean and your new mateys surrounding you. You may not have gotten your farm back, but you’ve found a new purpose exploring and pillaging the seven seas.\n"+ "\n"+ "\n"+ "\n"+ "The End"));
+	}
+	@BuilderMethod
+	public void NoActions() {
+		var node = get(MyNodeLabels.No.toString());
+		node.add(new NarrationSequence("Do ye want to be? I could always use some more crew."));
+	}
+	@BuilderMethod
+	public void TooBadActions() {
+		var node = get(MyNodeLabels.TooBad.toString());
+		node.add(new NarrationSequence("Then get off me dock land lubber!  >:("));
+	}
+	@BuilderMethod
+	public void ArgActions() {
+		var node = get(MyNodeLabels.Arg.toString());
+		node.add(new NarrationSequence("If ye wants to be a pirate, first you must go find my lost parrot. Here, this spy glass will help you find him."));
+	}
+	
 	
 	
 
