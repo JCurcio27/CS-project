@@ -158,6 +158,16 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new Take(gaurd,coin,player));
 		node.add(new SetPosition(player, city));
 	}
+	public void CastleGateActions() {
+		var node = get(MyNodeLabels.CastleGate.toString());
+		node.add(new SetPosition(gaurd, castleCrossroads));
+		node.add(new NarrationSequence("You approach an opulant castle at the edge of the city. There you are faced with a guard standing guard at the moat entrance."));
+		node.add(new Face(gaurd,player));
+		node.add(new Face(player,gaurd));
+		node.add(new Draw(player,coin));
+		node.add(new Take(gaurd,coin,player));
+		node.add(new SetPosition(player, hallway));	
+	}
 	
 	@BuilderMethod
 	public void CityBeggingSpotActions() {
@@ -340,6 +350,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.FightTheGuard.toString());
 		node.add(new NarrationSequence("You won the fight taking and wearing the guards armor."));
 	}
+	
 	
 	
 	
