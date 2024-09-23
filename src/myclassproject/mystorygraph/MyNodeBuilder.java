@@ -24,6 +24,9 @@ public class MyNodeBuilder extends NodeBuilder {
 	 * The method adds Camelot actions that execute in order when visiting that node. 
 	 * These methods must have a BuilderMethod annotation.
 	 */
+	
+	// Joshua Haddad
+	
 	@BuilderMethod
 	public void rootActions() {
 		//Example:
@@ -52,6 +55,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		.add(new SetPosition(merchant, storage))
 		.add(new ShowMenu());
 	}
+	// Zev Gaslin
 	@BuilderMethod
 	public void TownActions() {
 		var node = get(MyNodeLabels.Town.toString());
@@ -60,6 +64,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		
 		
 	}
+	//Zev Gaslin
 	@BuilderMethod
 	public void CityActions() {
 		var node = get(MyNodeLabels.City.toString());
@@ -67,7 +72,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new NarrationSequence("As you pass through the pearly gates of the city, you are taken aback by the hustle and bustle of the beautiful Camelot City. You are excited by the prospect of exploring every corner of the mysterious new location, but you know you must focus on your ultimate goal; getting your land back.\n"));
 		
 	}
-	
+	//Jaedan Curcio
 	@BuilderMethod
 	public void TownBeggingActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
@@ -76,6 +81,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new NarrationSequence("While in your begging spot, a citizen crosses your path. Would you like to beg for coins, attempt to fight him, or attempt to pickpocket him?"));
 		
 	}
+	//Joshua Haddad
 	@BuilderMethod
 	public void TownGeneralStoreActions() {
 		var node = get(MyNodeLabels.TownGeneralStore.toString());
@@ -169,7 +175,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new Take(gaurd,coin,player));
 		node.add(new SetPosition(player, hallway));	
 	}
-	
+	// Jaedan Curcio
 	@BuilderMethod
 	public void CityBeggingSpotActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
@@ -219,7 +225,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new NarrationSequence("The fountain erupts with gold, giving you seemingly an infinite amount!"));
 		
 	}
-	
+	//Zev Gaslin
 	@BuilderMethod
 	public void DockActions() {
 		var node = get(MyNodeLabels.Dock.toString());
@@ -270,7 +276,7 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.GrabHim.toString());
 		node.add(new NarrationSequence("You have a parrot now!"));
 	}
-	
+	//Jaedan Curcio
 	@BuilderMethod
 	public void YouDiedTownActions() {
 		var node = get(MyNodeLabels.YouDiedTown.toString());
@@ -297,7 +303,7 @@ public class MyNodeBuilder extends NodeBuilder {
 	@BuilderMethod
 	public void FightKingActions() {
 		var node = get(MyNodeLabels.FightKing.toString());
-		node.add(new Face (player, king)).add(new Draw(king, sword)).add(new Draw(player, sword)).add(new NarrationSequence("Now, you die!")).add(new Attack(player, king, true)).add(new Die(king).add(new Dance(player)));
+		node.add(new Face (player, king)).add(new Draw(king, sword)).add(new Draw(player, sword)).add(new NarrationSequence("Now, you die!")).add(new Attack(player, king, true)).add(new Die(king)).add(new Dance(player));
 	}
 	
 	@BuilderMethod
@@ -310,12 +316,17 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.BuyKingdom.toString());
 		node.add(new NarrationSequence("Really, you would be willing to buy this kingdom off me? King Bartholomew asked nervously. Honestly, I never did like being king always... I really just did it for the money. King Bartholomew gingerly paces back and forth across the room while nodding, becoming more and more certain with each step. Yes. I will sell you my kingdom."));
 	}
-	
+	//Zev Gaslin
 	@BuilderMethod
 	public void BribeTheGuard1Actions() {
 		var node = get(MyNodeLabels.BribeTheGuard1.toString());
 		node.add(new SetPosition(gaurd,hallway));
 		node.add(new NarrationSequence("The guard happily takes your coins letting you into the Castle."));
+	}
+	@BuilderMethod
+	public void MainHallActions() {
+		var node = get(MyNodeLabels.MainHallUnsafe.toString());
+		node.add(new NarrationSequence("Disgused as a Castle Guard, you walk across the main hall briskly into the throne room."));
 	}
 	@BuilderMethod
 	public void MainHallUnsafeActions() {
@@ -351,7 +362,30 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void FightTheGuardActions() {
 		var node = get(MyNodeLabels.FightTheGuard.toString());
 		node.add(new NarrationSequence("You won the fight taking and wearing the guards armor."));
+		
 	}
+	//Jaedan Curcio
+	@BuilderMethod
+	public void LandEndingActions() {
+		var node = get(MyNodeLabels.LandEnding.toString());
+		node.add(new FadeOut());
+		node.add(new NarrationSequence("You return to your farm, living out the rest of your days in peace. The king never dared approach your lands again. In the far future you sit on your porch at sunset, rocking back and fourth, proud to have this clod of earth to call your own.\n"
+				+ "\n"
+				+ "The End."));
+		node.add(new CreditsSequence("Game coded and written by Zev Gaslin, Josh Haddad, and Jaedan Curcio.\n Look out for Adventures of Grungus 2: Electric Boogaloo in Blockbuster stores near you."));
+	}
+	@BuilderMethod
+	public void KingdomEndingActions() {
+		var node = get(MyNodeLabels.KindomEnding.toString());
+		node.add(new FadeOut());
+		node.add(new NarrationSequence("King Bartholomew abdicates his throne, giving you full ownership of the kingdom and all its properties. King Bartholomew leaves, never to be seen again, having spent the rest of his life in a state of quite solitude on a farm in the furthest recesses of the countryside.\n"
+				+ "\n"
+				+ "Meanwhile, you are absolutely terrible at running your newly found kindom. Begging and farming were your main areas of expertise. You find yourself wholeheartedly unable to perform the managerial tasks required to be king. Due to your shortcomings, you quickly run the kingdom into anarchy and die unceremoniously of a heart attack due to the stress during a peasant revolt outside your castle.\n"
+				+ "\n"
+				+ "The end."));
+		node.add(new CreditsSequence("Game coded and written by Zev Gaslin, Josh Haddad, and Jaedan Curcio.\n Look out for Adventures of Grungus 2: Electric Boogaloo in Blockbuster stores near you."));
+	}
+	
 	
 	
 	
