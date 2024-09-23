@@ -282,8 +282,6 @@ public class MyNodeBuilder extends NodeBuilder {
 		node.add(new WalkTo(player, king));
 		node.add(new NarrationSequence("Who dares come into the great throne room of the great king, king Bartholomew the great?!?! State your buisness immediately or face my wrath!"));	
 	}
-	
-	
 	@BuilderMethod
 	public void FightKingActions() {
 		var node = get(MyNodeLabels.FightKing.toString());
@@ -295,10 +293,52 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.BuyYourLandBack.toString());
 		node.add(new NarrationSequence("Very well, you have earned enough money to buy your land back. Capitalism wins yet again!"));
 	}
-	
+	@BuilderMethod
 	public void BuyKingdomActions() {
 		var node = get(MyNodeLabels.BuyKingdom.toString());
 		node.add(new NarrationSequence("Really, you would be willing to buy this kingdom off me? King Bartholomew asked nervously. Honestly, I never did like being king always... I really just did it for the money. King Bartholomew gingerly paces back and forth across the room while nodding, becoming more and more certain with each step. Yes. I will sell you my kingdom."));
+	}
+	
+	@BuilderMethod
+	public void BribeTheGuard1Actions() {
+		var node = get(MyNodeLabels.BribeTheGuard1.toString());
+		node.add(new SetPosition(gaurd,hallway));
+		node.add(new NarrationSequence("The guard happily takes your coins letting you into the Castle."));
+	}
+	@BuilderMethod
+	public void MainHallUnsafeActions() {
+		var node = get(MyNodeLabels.MainHallUnsafe.toString());
+		node.add(new NarrationSequence("Another guard is standing guard not letting you progress further into the Castle (1/3)"));
+	}
+	@BuilderMethod
+	public void BribeTheGuard2Actions() {
+		var node = get(MyNodeLabels.BribeTheGuard2.toString());
+		node.add(new NarrationSequence("The guard happily takes your coins letting you into the Castle."));
+	}
+	@BuilderMethod
+	public void MainHallUnsafe2Actions() {
+		var node = get(MyNodeLabels.MainHallUnsafe2.toString());
+		node.add(new NarrationSequence("As you walk further into the Castle yet another guard blocks your path (2/3)"));
+	}
+	@BuilderMethod
+	public void BribeTheGuard3Actions() {
+		var node = get(MyNodeLabels.BribeTheGuard3.toString());
+		node.add(new NarrationSequence("The guard happily takes your coins letting you even furhter into the Castle."));
+	}
+	@BuilderMethod
+	public void MainHallUnsafe3Actions() {
+		var node = get(MyNodeLabels.MainHallUnsafe3.toString());
+		node.add(new NarrationSequence("A final guard stands in the way of letting you acsess the kings thrown room. (3/3)"));
+	}
+	@BuilderMethod
+	public void BribeTheGuard4Actions() {
+		var node = get(MyNodeLabels.BribeTheGuard4.toString());
+		node.add(new NarrationSequence("The guard happily takes your coins letting you into the throne room."));
+	}
+	@BuilderMethod
+	public void FightTheGuardActions() {
+		var node = get(MyNodeLabels.FightTheGuard.toString());
+		node.add(new NarrationSequence("You won the fight taking and wearing the guards armor."));
 	}
 	
 	
