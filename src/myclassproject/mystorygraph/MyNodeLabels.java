@@ -5,27 +5,21 @@ public enum MyNodeLabels{
 	root, //d
 	Town, //d
 	TownGeneralStore, //d
-	Twinkie,
-	Apple,
-	VerySourGrapes,
-	GeneralStore,
+	GeneralStore, //d
 	BeggingSpot,//d
 	Fight,//d
 	BegForCoins,//d
 	AttemptPickPocket,//d
-	YouDiedTown,
-	Gate,
-	Pay,
-	City,
-	FightPrisoner,
+	YouDiedTown, //d
+	Gate, //d
+	City, //d
+	FightPrisoner, //d
 	Blacksmith,//d
-	Upgrade,
-	Dungeon,
-	YouDiedCity,
-	FightTheGuard,
+	Dungeon, //d
+	YouDiedCity, //d
+	FightTheGuard, 
 	MainHall,
-	Alchemy,
-	GetBook,
+	Alchemy, //d
 	CastleGate,
 	BribeTheGuard1,
 	MainHallUnsafe,
@@ -34,7 +28,7 @@ public enum MyNodeLabels{
 	BribeTheGuard3,
 	MainHallUnsafe3,
 	BribeTheGuard4,
-	ThroneRoom,
+	ThroneRoom, //d
 	Forest, //d
 	Fountain, //d
 	LoudAndObnoxiousTree,//d
@@ -46,10 +40,10 @@ public enum MyNodeLabels{
 	No, //d
 	Arg, //d
 	PirateEnding, //d
-	TooBad,
-	FightKing,
-	BuyYourLandBack,
+	TooBad, //d
+	FightKing,//d
+	BuyYourLandBack,//d
 	LandEnding,
-	BuyKingdom,
-	KindomEnding;
+	BuyKingdom,//d
+	KindomEnding; 
 }

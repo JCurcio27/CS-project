@@ -215,5 +215,50 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.GrabHim.toString());
 		node.add(new NarrationSequence("You have a parrot now!"));
 	}
+	
+	@BuilderMethod
+	public void YouDiedTownActions() {
+		var node = get(MyNodeLabels.YouDiedTown.toString());
+		node.add(new FadeOut());
+		node.add(new NarrationSequence("You took too much damage and passed out. A rude peasant found your body and dragged you back to town stealing a portion of your gold"));
+		node.add(new SetPosition(player, town));
+		node.add(new FadeIn());
+	}
+	
+	@BuilderMethod
+	public void YouDiedCityActions() {
+		var node = get(MyNodeLabels.YouDiedCity.toString());
+		node.add(new FadeOut());
+		node.add(new NarrationSequence("You took too much damage and passed out. You wake up in a mysterious, damp stone room."));
+		node.add(new SetPosition(player, dungeon));
+		node.add(new FadeIn());
+	}
+	@BuilderMethod
+	public void ThroneRoomActions() {
+		var node = get(MyNodeLabels.ThroneRoom.toString());
+		node.add(new WalkTo(player, king));
+		node.add(new NarrationSequence("Who dares come into the great throne room of the great king, king Bartholomew the great?!?! State your buisness immediately or face my wrath!"));	
+	}
+	
+	
+	@BuilderMethod
+	public void FightKingActions() {
+		var node = get(MyNodeLabels.FightKing.toString());
+		node.add(new Face (player, king)).add(new Draw(king, sword)).add(new Draw(player, sword)).add(new NarrationSequence("Now, you die!")).add(new Attack(player, king, true)).add(new Die(king).add(new Dance(player)));
+	}
+	
+	@BuilderMethod
+	public void BuyYourLandBackActions() {
+		var node = get(MyNodeLabels.BuyYourLandBack.toString());
+		node.add(new NarrationSequence("Very well, you have earned enough money to buy your land back. Capitalism wins yet again!"));
+	}
+	
+	public void BuyKingdomActions() {
+		var node = get(MyNodeLabels.BuyKingdom.toString());
+		node.add(new NarrationSequence("Really, you would be willing to buy this kingdom off me? King Bartholomew asked nervously. Honestly, I never did like being king always... I really just did it for the money. King Bartholomew gingerly paces back and forth across the room while nodding, becoming more and more certain with each step. Yes. I will sell you my kingdom."));
+	}
+	
+	
+	
 
 }
