@@ -37,10 +37,10 @@ public enum MyNodeLabels{
 	ThroneRoom,
 	Forest, //d
 	Fountain, //d
-	LoudAndObnoxiousTree,
+	LoudAndObnoxiousTree,//d
 	InfiniteGold, //d
-	LookThroughSpyglass,
-	GrabHim, 
+	LookThroughSpyglass,//d
+	GrabHim, //d
 	Dock, //d
 	PirateFight, //d
 	No, //d
