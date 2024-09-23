@@ -35,6 +35,14 @@ public final class MyStoryEntities {
 	public static final Place port = new Place("Port", PlaceTypes.Port);
 	public static final Place storage = new Place("Storage", PlaceTypes.Storage);
 	public static final Place bridge = new Place("Bridge", PlaceTypes.Bridge);
+	public static final Item sword = new Item("Sword", ItemTypes.Sword);
+	public static final Item coin = new Item("Coin", ItemTypes.Coin);
+	public static final Item evilBook = new Item("EvilBook", ItemTypes.EvilBook);
+	public static final Item magnifyingGlass = new Item("MagnifyingGlass", ItemTypes.MagnifyingGlass);
+	public static final Item apple = new Item("Apple", ItemTypes.Apple);
+	public static final Item bread = new Item("Bread", ItemTypes.Bread);
+	
+
 
 }
-}
+
