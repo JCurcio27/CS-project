@@ -80,42 +80,85 @@ public class MyNodeBuilder extends NodeBuilder {
 	public void TownGeneralStoreActions() {
 		var node = get(MyNodeLabels.TownGeneralStore.toString());
 		node.add(new NarrationSequence("You enter a small general store that seems to be falling apart at the seams and smells of mold and must. You approach the manic store owner. Would you like to purchase anything?"));
+		node.add(new FadeIn());
 		node.add(new Face(merchant,player));
 		node.add(new Face(player,merchant));
 		node.add(new Draw(player,coin));
 		node.add(new Draw(merchant,apple));
 		node.add(new Take(merchant,coin,player));
 		node.add(new Take(player,apple,merchant));
-		node.add(new FadeIn());
-		node.add(new HideMenu()).add(new EnableInput());
 	}
 	
 	@BuilderMethod
 	public void GeneralStoreActions() {
 		var node = get(MyNodeLabels.GeneralStore.toString());
 		node.add(new NarrationSequence("You walk into the city’s general store and are greeted by a cat meowing at your feet. “Ah, welcome!”, says the store’s owner. “Feel free to shop around for as long as you’d like, and let me know if you see anything that strikes your fancy!”"));
+		node.add(new FadeIn());
 		node.add(new Face(merchant,player));
 		node.add(new Face(player,merchant));
 		node.add(new Draw(player,coin));
 		node.add(new Draw(merchant,bread));
 		node.add(new Take(merchant,coin,player));
 		node.add(new Take(player,bread,merchant));
-		node.add(new FadeIn());
-		node.add(new HideMenu()).add(new EnableInput());
 	}
-	
+	@BuilderMethod
 	public void BlacksmithActions() {
-		var node = get(MyNodeLabels.Town.toString());
+		var node = get(MyNodeLabels.Blacksmith.toString());
 		node.add(new NarrationSequence("The smell of fire fills your nostrils as you enter the blacksmiths shop. “Welcome to my humble forge”, says the Blacksmith. “Please, let me know if you’d like to purchase any of my wares”."));
+		node.add(new FadeIn());
 		node.add(new Face(blacksmith,player));
 		node.add(new Face(player,blacksmith));
-		node.add(new Draw(player,coin));
-		node.add(new Draw(merchant,bread));
-		node.add(new Take(merchant,coin,player));
-		node.add(new Take(player,bread,merchant));
-		node.add(new FadeIn());
-		node.add(new HideMenu()).add(new EnableInput());
+		node.add(new Draw(player,sword));
+		node.add(new Take(blacksmith,sword,player));
+		node.add(new Dance(blacksmith));
+		node.add(new Give(blacksmith,sword,player));
 	}
+	@BuilderMethod
+	public void AlchemyActions() {
+		var node = get(MyNodeLabels.Alchemy.toString());
+		node.add(new NarrationSequence("You enter a small, dingy store on the outskirts of town to find a lady brewing potions in a cauldron in the corner of the shop. “What do you want, mortal?”, says the lady, who appears to be the store’s owner."));
+		node.add(new FadeIn());
+		node.add(new Face(alchemist,player));
+		node.add(new Face(player,alchemist));
+		node.add(new Draw(player,coin));
+		node.add(new Draw(alchemist,evilBook));
+		node.add(new NarrationSequence("Warning: This book is evil"));
+		node.add(new FadeIn());
+		node.add(new Take(player,evilBook,alchemist));
+	}
+	@BuilderMethod
+	public void DungeonActions() {
+		var node = get(MyNodeLabels.Dungeon.toString());
+		node.add(new SetPosition(bandit, dungeon));
+		node.add(new NarrationSequence("You awaken in a cage in the middle of a damp, dark room. You can barely make out the faces of one other prisoner in the dim light of the candlestick on the warden’s desk. “Ah it looks another poor unfortunate soul has awoken from his slumber!”, says the warden. “The only way out of here is to fight your way out! If you lose, you die!” You lock eyes with the other prisoner, ready for battle."));
+		node.add(new FadeIn());
+		node.add(new Face(bandit,player));
+		node.add(new Face(player,bandit));
+		node.add(new Draw(player,sword));
+		node.add(new Draw(bandit,sword));
+	}
+	@BuilderMethod
+	public void FightPrisonerActions() {
+		var node = get(MyNodeLabels.Fight.toString());
+		node.add(new NarrationSequence("You ready your weapon against this poor prisoner. He looks to have been here for awhile and is fairly weak."));
+		node.add(new Attack(player, bandit, true));
+		node.add(new Die(bandit));
+		node.add(new Dance(player));
+		node.add(new NarrationSequence("You knock him down in one blow. You've earned your freedom... but at what cost?"));
+		node.add(new SetPosition(player, city));
+	}
+	@BuilderMethod
+	public void gateActions() {
+		var node = get(MyNodeLabels.Gate.toString());
+		node.add(new SetPosition(gaurd, bridge));
+		node.add(new NarrationSequence("You approach a decrepit gate at the edge of town. A large, burly man carrying a sword blocks the exit with his carriage. “Everyone who leaves this town has to go through me. For 20 coins, I’ll take you to the city. If you don’t, get out of my sight.” Do you pay, leave, or take your chances in a fight?"));
+		node.add(new Face(gaurd,player));
+		node.add(new Face(player,gaurd));
+		node.add(new Draw(player,coin));
+		node.add(new Take(gaurd,coin,player));
+		node.add(new SetPosition(player, city));
+	}
+	
 	@BuilderMethod
 	public void CityBeggingSpotActions() {
 		var node = get(MyNodeLabels.BeggingSpot.toString());
