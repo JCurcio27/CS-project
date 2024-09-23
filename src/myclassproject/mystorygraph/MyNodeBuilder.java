@@ -200,8 +200,20 @@ public class MyNodeBuilder extends NodeBuilder {
 		var node = get(MyNodeLabels.Arg.toString());
 		node.add(new NarrationSequence("If ye wants to be a pirate, first you must go find my lost parrot. Here, this spy glass will help you find him."));
 	}
-	
-	
-	
+	@BuilderMethod
+	public void LoudAndObnoxiousTreeActions() {
+		var node = get(MyNodeLabels.LoudAndObnoxiousTree.toString());
+		node.add(new NarrationSequence("You see something flying up in the tree. If only you had a spyglass, you could see what it is."));
+	}
+	@BuilderMethod
+	public void LookThroughSpyglassActions() {
+		var node = get(MyNodeLabels.LookThroughSpyglass.toString());
+		node.add(new NarrationSequence("You see a parrot flying up in the tree."));
+	}
+	@BuilderMethod
+	public void GrabHimActions() {
+		var node = get(MyNodeLabels.GrabHim.toString());
+		node.add(new NarrationSequence("You have a parrot now!"));
+	}
 
 }
