@@ -50,6 +50,7 @@ public final class MyStoryEntities {
 	public static final Characters king = new Characters("King", BodyTypes.B, Clothing.King, HairStyle.Short, Colors.Black, 4);
 	public static final Characters gaurd = new Characters("Gaurd", BodyTypes.F, Clothing.HeavyArmour, HairStyle.Bald, Colors.Black, 4);
 	public static final Characters pirate = new Characters("Pirate", BodyTypes.H, Clothing.Peasant, HairStyle.Musketeer_Full, Colors.Brown, 4);
+	public static final Characters merchant = new Characters("Merchant", BodyTypes.B, Clothing.Merchant, HairStyle.Long, Colors.Brown, 4);
 
 
 

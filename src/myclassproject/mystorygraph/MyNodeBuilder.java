@@ -109,10 +109,15 @@ public class MyNodeBuilder extends NodeBuilder {
 	
 	@BuilderMethod
 	public void AttemptPickPocketActions() {
-		var node = get(MyNodeLabels.AttemptPickpocket.toString());
+		var node = get(MyNodeLabels.AttemptPickPocket.toString());
 		node.add(new NarrationSequence("You are caught by the stranger! He draws his sword at you, and prepares to attack!"));
 		node.add(new Face(npc1, player)).add(new Draw(npc1, sword)).add(new Attack(npc1, player, true)).add(new Die(player));
 	}
 	
+	@BuilderMethod
+	public void DockActions() {
+		var node = get(MyNodeLabels.Dock.toString());
+		node.add(new NarrationSequence("You are greeted by the smell of sea mist and rum as you enter the dock at the edge of town. You see a group of swashbucklers sitting by their ship, as well as local city goers fishing off of the dock."));
+	}
 
 }
